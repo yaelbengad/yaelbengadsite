@@ -4,165 +4,412 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Creative Director - AI לעסק שלך</title>
-  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --primary-gradient: linear-gradient(135deg, #6366f1, #8b5cf6);
+      --secondary-gradient: linear-gradient(135deg, #8b5cf6, #d946ef);
+      --accent-gradient: linear-gradient(135deg, #d946ef, #ec4899);
+      --text-color: #1f2937;
+      --light-bg: #f8fafc;
+    }
+
     html, body {
       margin: 0;
       padding: 0;
       overflow-x: hidden;
+      scroll-behavior: smooth;
     }
+
     body {
       font-family: 'Assistant', sans-serif;
-      background-color: #ffffff;
-      color: #222;
+      background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+      color: var(--text-color);
       direction: rtl;
+      line-height: 1.6;
     }
+
     header {
-      background-color: #111;
+      background: var(--primary-gradient);
       color: white;
-      padding: 6em 2em;
+      padding: 8em 2em;
       text-align: center;
+      position: relative;
+      overflow: hidden;
     }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="1" fill="rgba(255,255,255,0.1)"/></svg>');
+      opacity: 0.1;
+    }
+
     header h1 {
-      font-size: 2.8em;
+      font-size: 3.2em;
       margin: 0;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      animation: fadeInUp 1s ease-out;
+      background: linear-gradient(to right, #ffffff, #e2e8f0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
+
     header p {
-      font-size: 1.2em;
-      margin-top: 1em;
+      font-size: 1.3em;
+      margin-top: 1.5em;
       max-width: 700px;
       margin-right: auto;
       margin-left: auto;
+      opacity: 0.9;
+      animation: fadeInUp 1s ease-out 0.2s backwards;
     }
+
     section {
-      padding: 4em 2em;
-      max-width: 1000px;
+      padding: 6em 2em;
+      max-width: 1200px;
       margin: auto;
       box-sizing: border-box;
     }
+
     .highlight {
-      background: #f0f0f0;
-      padding: 2em;
-      border-radius: 10px;
+      background: white;
+      padding: 3em;
+      border-radius: 16px;
       margin-bottom: 3em;
       box-sizing: border-box;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      transition: transform 0.3s ease;
+      border: 1px solid rgba(99, 102, 241, 0.1);
     }
+
+    .highlight:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 12px -1px rgba(99, 102, 241, 0.1), 0 4px 6px -1px rgba(99, 102, 241, 0.06);
+    }
+
     .highlight h2 {
       margin-top: 0;
+      background: var(--primary-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-size: 2em;
+      margin-bottom: 1em;
     }
+
     .images {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1em;
-      justify-content: center;
-      margin: 2em 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2em;
+      margin: 3em 0;
       box-sizing: border-box;
     }
+
     .images img {
       width: 100%;
-      max-width: 480px;
-      border-radius: 10px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      box-sizing: border-box;
+      border-radius: 16px;
+      box-shadow: 0 4px 6px -1px rgba(99, 102, 241, 0.1), 0 2px 4px -1px rgba(99, 102, 241, 0.06);
+      transition: transform 0.3s ease;
+      border: 1px solid rgba(99, 102, 241, 0.1);
     }
+
+    .images img:hover {
+      transform: scale(1.02);
+    }
+
     form {
-      max-width: 400px;
+      max-width: 500px;
       margin: auto;
-      background: #e8f5e9;
-      padding: 2em;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-      box-sizing: border-box;
+      background: white;
+      padding: 3em;
+      border-radius: 16px;
+      box-shadow: 0 4px 6px -1px rgba(99, 102, 241, 0.1), 0 2px 4px -1px rgba(99, 102, 241, 0.06);
+      border: 1px solid rgba(99, 102, 241, 0.1);
     }
+
     form label {
-      font-weight: bold;
+      font-weight: 600;
+      color: var(--text-color);
+      display: block;
+      margin-bottom: 0.5em;
     }
-    form input, form button {
+
+    form input {
       width: 100%;
-      padding: 0.7em;
-      margin-top: 0.5em;
-      margin-bottom: 1em;
-      border: 1px solid #ccc;
-      border-radius: 5px;
+      padding: 1em;
+      margin-bottom: 1.5em;
+      border: 2px solid rgba(99, 102, 241, 0.2);
+      border-radius: 8px;
       font-size: 1em;
-      box-sizing: border-box;
+      transition: all 0.3s ease;
     }
+
+    form input:focus {
+      outline: none;
+      border-color: #6366f1;
+      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+    }
+
     form button {
-      background: linear-gradient(to right, #00c9ff, #92fe9d);
-      font-weight: bold;
+      width: 100%;
+      padding: 1em;
+      background: var(--primary-gradient);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1em;
+      font-weight: 600;
       cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
+
     form button:hover {
-      opacity: 0.9;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2);
     }
+
     footer {
       text-align: center;
-      padding: 2em;
+      padding: 3em;
       font-size: 0.9em;
-      color: #777;
+      color: #64748b;
+      background: white;
+      border-top: 1px solid rgba(99, 102, 241, 0.1);
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     /* Responsive styles */
-    @media (max-width: 600px) {
+    @media (max-width: 768px) {
       header {
-        padding: 4em 1em;
+        padding: 6em 1.5em;
       }
+      
       header h1 {
-        font-size: 2em;
+        font-size: 2.4em;
       }
+      
       header p {
-        font-size: 1em;
+        font-size: 1.1em;
       }
+      
       section {
-        padding: 2em 1em;
+        padding: 4em 1.5em;
       }
+      
       .highlight {
-        padding: 1.5em;
+        padding: 2em;
       }
+      
       .images {
-        flex-direction: column;
-        align-items: center;
+        grid-template-columns: 1fr;
       }
-      .images img {
-        max-width: 100%;
-      }
+      
       form {
+        padding: 2em;
+      }
+    }
+
+    .highlight-flex {
+      display: flex;
+      align-items: center;
+      gap: 3em;
+      justify-content: space-between;
+    }
+    .highlight-flex.reverse {
+      flex-direction: row-reverse;
+    }
+    .highlight-text {
+      flex: 1 1 0;
+      min-width: 0;
+    }
+    .highlight-image {
+      flex: 0 0 340px;
+      max-width: 340px;
+      min-width: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .highlight-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 16px;
+      box-shadow: 0 4px 6px -1px rgba(99, 102, 241, 0.1), 0 2px 4px -1px rgba(99, 102, 241, 0.06);
+      border: 1px solid rgba(99, 102, 241, 0.1);
+      object-fit: cover;
+      max-height: 320px;
+    }
+    @media (max-width: 900px) {
+      .highlight-flex,
+      .highlight-flex.reverse {
+        flex-direction: column;
+        gap: 2em;
+      }
+      .highlight-image {
+        max-width: 100%;
         width: 100%;
-        padding: 1.5em;
       }
-      form input, form button {
-        font-size: 1em;
+      .highlight-image img {
+        max-width: 100%;
+        max-height: 260px;
       }
+    }
+
+    .quote {
+      background: linear-gradient(90deg, #f3e8ff 60%, #ede9fe 100%);
+      border-right: 6px solid #8b5cf6;
+      border-radius: 12px;
+      padding: 1.2em 1.5em;
+      margin: 2em 0;
+      font-style: italic;
+      font-size: 1.15em;
+      color: #5b21b6;
+      box-shadow: 0 2px 8px 0 rgba(139,92,246,0.07);
+    }
+
+    .services {
+      text-align: center;
+      margin: 4em auto;
+      max-width: 900px;
+      padding: 0 1em;
+    }
+    .service-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2em;
+      justify-content: center;
+      margin-top: 2em;
+    }
+    .service-card {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(139,92,246,0.07);
+      padding: 2em 1.5em;
+      min-width: 220px;
+      max-width: 300px;
+      flex: 1 1 220px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.2s;
+      border: 1px solid #ede9fe;
+    }
+    .service-card:hover {
+      transform: translateY(-6px) scale(1.03);
+      box-shadow: 0 8px 24px rgba(139,92,246,0.13);
+    }
+    .service-icon {
+      font-size: 2.2em;
+      margin-bottom: 0.7em;
+    }
+    @media (max-width: 900px) {
+      .service-cards {
+        flex-direction: column;
+        gap: 1.5em;
+      }
+    }
+    .service-title {
+      font-size: 1.25em;
+      font-weight: bold;
+      margin-bottom: 0.5em;
+      color: var(--text-color);
+    }
+    .service-desc {
+      font-size: 1em;
+      color: #555;
+      line-height: 1.6;
     }
   </style>
 </head>
 <body>
+  <div style="width:100%;background:rgba(255,255,255,0.85);padding:0.5em 0;text-align:center;font-weight:600;letter-spacing:0.5px;font-size:1.1em;border-bottom:1px solid #ececec;z-index:10;position:relative;">
+    יעל בן גד - קידום עסקי דיגיטלי
+  </div>
   <header>
     <h1>טכנולוגיה. פשטות. תוצאה.</h1>
     <p>אני עוזרת לעסקים קטנים לרתום כלים חכמים כדי לייעל, לפנות זמן ולהתרחב – בלי מילים מסובכות ובלי כאב ראש.</p>
   </header>
 
-  <section class="highlight">
-    <h2>מה עושים איתי?</h2>
-    <p>
-      נזהה מה גוזל ממך זמן – שיווק, הנהלת חשבונות, ניירת – ונמצא כלים שיעשו את זה בשבילך. נבנה תהליכים אוטומטיים שישחררו לך זמן.
-      ובמקביל – נבדוק איך אפשר להציע שירותים דיגיטליים שמבוססים על הידע שלך ולהגיע לקהלים חדשים.
-    </p>
+  <section class="highlight highlight-flex">
+    <div class="highlight-text">
+      <h2>לפנות אותך למה שאת עושה הכי טוב</h2>
+      <p class="quote">אתה בעל עסק מעולה אבל אתה מוצא את עצמך כל היום מתעסק במטלות ומתרחק ממה שבאמת באת לעשות...<br>
+      העסק הוא את אבל מרוב עבודה שחורה את לא מוצאת את הידיים והרגליים...</p>
+      <p>לפעמים נדמה שהעולם רץ קדימה, עם אפליקציות, בינה מלאכותית, צ'אטבוטים, ואינסוף כלים ש"אמורים" לעזור. קשה להבין מה באמת נחוץ לעסק שלך, מאיפה להתחיל, ולפעמים אפילו מפחיד כשלא יודעים על אלו כלים אפשר לסמוך.</p>
+    </div>
+    <div class="highlight-image">
+      <img src="meeting.png" alt="פגישה עסקית עם מחשב נייד">
+    </div>
   </section>
 
-  <section class="images">
-    <img src="https://via.placeholder.com/480x300?text=תמונה+1" alt="placeholder1">
-    <img src="https://via.placeholder.com/480x300?text=תמונה+2" alt="placeholder2">
+  <section class="highlight highlight-flex reverse">
+    <div class="highlight-image">
+      <img src="meeting.png" alt="פגישה עסקית עם מחשב נייד">
+    </div>
+    <div class="highlight-text">
+      <h2>פה אני נכנסת לתמונה.</h2>
+      <p>אני עוזרת לבעלי עסקים להבין איך באמת להשתמש בטכנולוגיה ובכלי AI – בצורה פשוטה, נגישה, שמתאימה בדיוק לעסק שלך.<br>
+      בלי מילים גבוהות. לא בתיאוריה. רק פתרונות תפורים אישית שמביאים תוצאות.</p>
+      <p>בתהליך ממוקד ויעיל נעשה מיפוי של כל מה שגוזל ממך זמן – שיווק, הוצאת משכורות, הכנת מסמכים ועוד – ונראה איך אפשר לייעל את זה עם כלים קיימים, או לבנות אוטומציות חכמות שיפנו אותך למה שאתה באמת טוב בו.</p>
+
+    </div>
   </section>
 
-  <section class="highlight">
+
+  <section class="highlight highlight-flex reverse">
+    <div class="highlight-image">
+      <img src="meeting.png" alt="פגישה עסקית עם מחשב נייד">
+    </div>
+    <div class="highlight-text">
+      <h2>יצירת אפיקי הכנסה אסטרטגיים</h2>
+      <p>במקביל נבחן איך אפשר להגדיל את העסק:</p>
+      <ul>
+        <li>לפתח שירותים דיגיטליים מבוססי הידע שלך</li>
+        <li>להקים אפליקציה פשוטה שמרחיבה את ההכנסות</li>
+        <li>או לבנות מוצרים חדשים שיתאימו לקהל רחב יותר, במחירים נגישים יותר</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="services">
     <h2>מה אפשר לעשות יחד?</h2>
-    <ul>
-      <li>צ׳אטבוט מותאם אישית</li>
-      <li>אוטומציות לשיווק ושירות</li>
-      <li>אפליקציה בסיסית לעסק</li>
-      <li>מוצרים דיגיטליים חדשים</li>
-    </ul>
+    <div class="service-cards">
+      <div class="service-card">
+        <span class="service-icon">🤖</span>
+        <div class="service-title">צ'אטבוט אישי</div>
+        <div class="service-desc">התאמה והקמה של צ'אטבוט אישי לעסק שלך, מבוסס על תוכן ייחודי שלך לתת מענה, ליווי או תמיכה בלקוחות</div>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">⚡</span>
+        <div class="service-title">אוטומציה</div>
+        <div class="service-desc">בנייה של תהליכים אוטומטיים שחוסכים זמן</div>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">💡</span>
+        <div class="service-title">ייעוץ AI אישי</div>
+        <div class="service-desc">רתימת כלי AI לשיווק, שירות לקוחות, מכירות וכל מה שהעסק שלך צריך</div>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">📱</span>
+        <div class="service-title">אפליקציה לעסק</div>
+        <div class="service-desc">פשוטה, יעילה, מותאמת</div>
+      </div>
+    </div>
   </section>
 
   <section>
