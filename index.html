@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Creative Director - AI לעסק שלך</title>
+  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+    body {
+      font-family: 'Assistant', sans-serif;
+      background-color: #ffffff;
+      color: #222;
+      direction: rtl;
+    }
+    header {
+      background-color: #111;
+      color: white;
+      padding: 6em 2em;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 2.8em;
+      margin: 0;
+    }
+    header p {
+      font-size: 1.2em;
+      margin-top: 1em;
+      max-width: 700px;
+      margin-right: auto;
+      margin-left: auto;
+    }
+    section {
+      padding: 4em 2em;
+      max-width: 1000px;
+      margin: auto;
+      box-sizing: border-box;
+    }
+    .highlight {
+      background: #f0f0f0;
+      padding: 2em;
+      border-radius: 10px;
+      margin-bottom: 3em;
+      box-sizing: border-box;
+    }
+    .highlight h2 {
+      margin-top: 0;
+    }
+    .images {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1em;
+      justify-content: center;
+      margin: 2em 0;
+      box-sizing: border-box;
+    }
+    .images img {
+      width: 100%;
+      max-width: 480px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      box-sizing: border-box;
+    }
+    form {
+      max-width: 400px;
+      margin: auto;
+      background: #e8f5e9;
+      padding: 2em;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      box-sizing: border-box;
+    }
+    form label {
+      font-weight: bold;
+    }
+    form input, form button {
+      width: 100%;
+      padding: 0.7em;
+      margin-top: 0.5em;
+      margin-bottom: 1em;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1em;
+      box-sizing: border-box;
+    }
+    form button {
+      background: linear-gradient(to right, #00c9ff, #92fe9d);
+      font-weight: bold;
+      cursor: pointer;
+    }
+    form button:hover {
+      opacity: 0.9;
+    }
+    footer {
+      text-align: center;
+      padding: 2em;
+      font-size: 0.9em;
+      color: #777;
+    }
+
+    /* Responsive styles */
+    @media (max-width: 600px) {
+      header {
+        padding: 4em 1em;
+      }
+      header h1 {
+        font-size: 2em;
+      }
+      header p {
+        font-size: 1em;
+      }
+      section {
+        padding: 2em 1em;
+      }
+      .highlight {
+        padding: 1.5em;
+      }
+      .images {
+        flex-direction: column;
+        align-items: center;
+      }
+      .images img {
+        max-width: 100%;
+      }
+      form {
+        width: 100%;
+        padding: 1.5em;
+      }
+      form input, form button {
+        font-size: 1em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>טכנולוגיה. פשטות. תוצאה.</h1>
+    <p>אני עוזרת לעסקים קטנים לרתום כלים חכמים כדי לייעל, לפנות זמן ולהתרחב – בלי מילים מסובכות ובלי כאב ראש.</p>
+  </header>
+
+  <section class="highlight">
+    <h2>מה עושים איתי?</h2>
+    <p>
+      נזהה מה גוזל ממך זמן – שיווק, הנהלת חשבונות, ניירת – ונמצא כלים שיעשו את זה בשבילך. נבנה תהליכים אוטומטיים שישחררו לך זמן.
+      ובמקביל – נבדוק איך אפשר להציע שירותים דיגיטליים שמבוססים על הידע שלך ולהגיע לקהלים חדשים.
+    </p>
+  </section>
+
+  <section class="images">
+    <img src="https://via.placeholder.com/480x300?text=תמונה+1" alt="placeholder1">
+    <img src="https://via.placeholder.com/480x300?text=תמונה+2" alt="placeholder2">
+  </section>
+
+  <section class="highlight">
+    <h2>מה אפשר לעשות יחד?</h2>
+    <ul>
+      <li>צ׳אטבוט מותאם אישית</li>
+      <li>אוטומציות לשיווק ושירות</li>
+      <li>אפליקציה בסיסית לעסק</li>
+      <li>מוצרים דיגיטליים חדשים</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 style="text-align:center">רוצה להתייעץ?</h2>
+    <form action="https://formsubmit.co/your@email.com" method="POST">
+      <label for="name">שם:</label>
+      <input type="text" name="name" id="name" placeholder="איך קוראים לך?" required>
+
+      <label for="email">אימייל:</label>
+      <input type="email" name="email" id="email" placeholder="כתובת אימייל" required>
+
+      <button type="submit">שלחו לי פרטים</button>
+    </form>
+  </section>
+
+  <footer>
+    © 2025 - כל הזכויות שמורות. נבנה באהבה ובפשטות.
+  </footer>
+</body>
+</html>
