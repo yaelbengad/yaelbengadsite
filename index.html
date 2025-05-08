@@ -334,6 +334,25 @@
       color: #555;
       line-height: 1.6;
     }
+    .highlighted-text {
+      background: linear-gradient(90deg, #fffbe6 60%, #fef9c3 100%);
+      border-radius: 12px;
+      padding: 1.6em 2em;
+      margin: 2em 0;
+      font-size: 1.25em;
+      color: #7c5700;
+      box-shadow: 0 2px 8px 0 rgba(251,191,36,0.07);
+      font-style: normal;
+    }
+    .fade-in-up {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s cubic-bezier(.4,0,.2,1), transform 0.8s cubic-bezier(.4,0,.2,1);
+    }
+    .fade-in-up.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
   </style>
 </head>
 <body>
@@ -341,15 +360,15 @@
     יעל בן גד - קידום עסקי דיגיטלי
   </div>
   <header>
-    <h1>טכנולוגיה. פשטות. תוצאה.</h1>
+    <h1>טכנולוגיה. פשטות. תוצאות.</h1>
     <p>אני עוזרת לעסקים קטנים לרתום כלים חכמים כדי לייעל, לפנות זמן ולהתרחב – בלי מילים מסובכות ובלי כאב ראש.</p>
   </header>
 
-  <section class="highlight highlight-flex">
+  <section class="highlight highlight-flex fade-in-up">
     <div class="highlight-text">
       <h2>לפנות אותך למה שאת עושה הכי טוב</h2>
-      <p class="quote">אתה בעל עסק מעולה אבל אתה מוצא את עצמך כל היום מתעסק במטלות ומתרחק ממה שבאמת באת לעשות...<br>
-      העסק הוא את אבל מרוב עבודה שחורה את לא מוצאת את הידיים והרגליים...</p>
+      <p class="highlighted-text">יש לך עסק מעולה, אבל אתה מרגיש שאתה עובד אצלו במקום שהוא יעבוד בשבילך?<br>
+      העסק הוא את אבל מרוב משימות אין לך זמן לעשות את מה שאת אוהבת באמת?</p>
       <p>לפעמים נדמה שהעולם רץ קדימה, עם אפליקציות, בינה מלאכותית, צ'אטבוטים, ואינסוף כלים ש"אמורים" לעזור. קשה להבין מה באמת נחוץ לעסק שלך, מאיפה להתחיל, ולפעמים אפילו מפחיד כשלא יודעים על אלו כלים אפשר לסמוך.</p>
     </div>
     <div class="highlight-image">
@@ -357,7 +376,7 @@
     </div>
   </section>
 
-  <section class="highlight highlight-flex reverse">
+  <section class="highlight highlight-flex reverse fade-in-up">
     <div class="highlight-image">
       <img src="marketing-image-2.png" alt="יעל בן גד ai לעסקים">
     </div>
@@ -371,7 +390,7 @@
   </section>
 
 
-  <section class="highlight highlight-flex reverse">
+  <section class="highlight highlight-flex reverse fade-in-up">
     <div class="highlight-image">
       <img src="marketing-image.png" alt="קידום עסקי עם בינה מלאכותית">
     </div>
@@ -386,7 +405,7 @@
     </div>
   </section>
 
-  <section class="services">
+  <section class="services fade-in-up">
     <h2>מה אפשר לעשות יחד?</h2>
     <div class="service-cards">
       <div class="service-card">
@@ -428,5 +447,21 @@
   <footer>
     © 2025 - כל הזכויות שמורות ליעל בן גד. נבנה באהבה ובפשטות.
   </footer>
+
+  <script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const fadeEls = document.querySelectorAll('.fade-in-up');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    fadeEls.forEach(el => observer.observe(el));
+  });
+  </script>
 </body>
 </html>
